@@ -10,7 +10,7 @@ const getAllUser = async () => {
     if (error) {
       throw new Error(`Database Error: ${error.message}`);
     }
-
+    console.log(data)
     return data;
 
   } catch (error) {

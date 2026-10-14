@@ -70,7 +70,9 @@ const getUserById = async (id) => {
 const updateUserById = async (id, userData) => {
   try {
     const { name, email, phone, message } = userData;
-
+    if (userData.phone) {
+      userData.phone = String(userData.phone);
+    }
     //check the data
     contractformValidator.userId({ id });
     contractformValidator.userBodyUpdate(userData);

@@ -2,11 +2,15 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
+const cors = require("cors");
 const express = require('express');
 const { mainRoute } = require("./routes/index");
 
 const app = express();
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}));
 
 // Middleware
 app.use(express.json());
